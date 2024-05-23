@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password App</title>
+    <title>Text Encryption</title>
+    <link href="./styles.css" rel="stylesheet">
     <style>
         body {
             display: flex;
@@ -11,44 +13,37 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            text-align: center;
-        }
-        input[type="password"], input[type="text"] {
-            padding: 10px;
-            font-size: 16px;
-            margin-top: 10px;
-            display: block;
-            width: 100%;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        #fileContent {
-            margin-top: 20px;
-            white-space: pre-wrap; /* Preserve whitespace formatting */
-            text-align: left;
-            max-width: 80%;
-            word-wrap: break-word;
+            /* font-family: Arial, sans-serif; */
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Encrypt/Decrypt Text File</h1>
-        <button onclick="openFile()">Select Text File</button>
-        <div id="fileContent"></div>
-        <input type="password" id="password" placeholder="Enter Password" disabled>
-        <button onclick="encryptContent()" id="encryptButton" disabled>Encrypt</button>
-        <button onclick="decryptContent()" id="decryptButton" disabled>Decrypt</button>
-        <p id="message"></p>
-        <div id="resultContent"></div>
+        <!-- <h1>Text Encryption</h1> -->
+        <div class="file-upload">
+            <div class="file-select">
+                <div class="file-select-button" id="fileName">
+                    <button onclick="openFile()">Select Text File</button>
+                </div>
+                <div class="file-select-name" id="pathDisplay">No file chosen...</div>
+                <!-- <input type="file" name="chooseFile" id="chooseFile"> -->
+            </div>
+        </div>
+        <!-- <button onclick="openFile()">Select Text File</button> -->
+        <br />
+        <div class="encrytion-area">
+            </span><input type="password" id="password" placeholder="Enter Password" disabled>
+            <button onclick="encryptContent()" id="encryptButton" disabled>Encrypt</button>
+            <button onclick="decryptContent()" id="decryptButton" disabled>Decrypt</button>
+        </div>
+
+        <div class="result">
+            <!-- <p id="message">&nbsp</p>
+            <p id="resultContent">&nbsp</p> -->
+        </div>
     </div>
     <script src="renderer.js"></script>
 </body>
+
 </html>

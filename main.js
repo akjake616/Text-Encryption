@@ -7,8 +7,8 @@ let mainWindow;
 
 function createWindow() {
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 500,
+        height: 200,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false
@@ -74,7 +74,7 @@ ipcMain.handle('save-encrypted-file', async (event, originalFilePath, encryptedC
 
     try {
         fs.writeFileSync(encryptedFilePath, encryptedContent, 'utf-8');
-        return encryptedFilePath;
+        return `${fileName}_enc.txt`;
     } catch (error) {
         console.error('Error saving encrypted file:', error);
         return null;
@@ -104,7 +104,7 @@ ipcMain.handle('save-decrypted-file', async (event, originalFilePath, decryptedC
 
   try {
       fs.writeFileSync(encryptedFilePath, decryptedContent, 'utf-8');
-      return encryptedFilePath;
+      return `${fileName}_dec.txt`;
   } catch (error) {
       console.error('Error saving encrypted file:', error);
       return null;

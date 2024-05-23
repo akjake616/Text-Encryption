@@ -1,20 +1,19 @@
 {
-  "name": "electron-quick-start",
+  "name": "text-encryption",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A text encrytion application",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://gitlab.com/akjake616/text-encryption",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "text encryption",
+    "SHA256",
+    "seed phrases"
   ],
-  "author": "GitHub",
+  "author": "Jake W. Liu",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^30.0.6"
