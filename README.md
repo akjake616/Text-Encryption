@@ -1,6 +1,10 @@
 # Text Encyption
 
-This Electron application allows users to encrypt and decrypt text files using a password. The encrypted/decrypted files are saved in the same directory. This tool can help you encyrpt your seed phrases if you insist to save it digitally :rofl:
+This Electron-based application enables users to encrypt and decrypt text files using a password. The encrypted and decrypted files are saved in the same directory as the original file. This tool can be particularly useful for securely encrypting your blockchain seed phrases if you insist to store them digitally :rofl:
+
+<p align="center">
+  <img alt="Code Encryption" src="./media/sceenshot.png" width="50%" height="auto">
+</p>
 
 ## Features
 
