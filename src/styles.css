@@ -9,7 +9,6 @@
     display: block;
     border: 2px solid #dce4ec;
     color: #34495e;
-    cursor: pointer;
     height: 40px;
     line-height: 40px;
     text-align: left;
@@ -68,7 +67,6 @@
 
 .file-upload .file-select input[type=file] {
     z-index: 100;
-    cursor: pointer;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -83,11 +81,9 @@
 }
 
 .file-upload .file-select.file-select-disabled:hover {
-    cursor: default;
     display: block;
     border: 2px solid #dce4ec;
     color: #34495e;
-    cursor: pointer;
     height: 40px;
     line-height: 40px;
     margin-top: 5px;
@@ -107,6 +103,7 @@
 }
 
 .file-upload .file-select.file-select-disabled:hover .file-select-name {
+    cursor: default;
     line-height: 40px;
     display: inline-block;
     padding: 0 10px;
@@ -128,4 +125,8 @@
 
 #decryptButton {
     margin: 5px;
+}
+
+#textButton {
+    cursor: pointer;
 }
