@@ -117,6 +117,11 @@
     width: 250px;
 }
 
+#password.error {
+    border-color: red;
+    background-color: #ffe6e6;
+}
+
 #encryptButton {
     margin: 5px;
 }

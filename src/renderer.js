@@ -30,6 +30,7 @@ async function openFile() {
 
 async function encryptContent() {
     const password = document.getElementById('password').value;
+    const passwordBox = document.getElementById('password');
     const message = document.getElementById('message');
     const resultContentDiv = document.getElementById('resultContent');
 
@@ -42,42 +43,38 @@ async function encryptContent() {
             console.log('Encrypted file saved at:', fullPath);
             const encryptedFileName = await ipcRenderer.invoke('save-encrypted-file', fullPath, encryptedContentWithIV);
             if (encryptedFileName) {
-                // console.log('Encrypted file saved at:', encryptedFileName);
-                // message.textContent = `File encrypted successfully!`;
-                // message.style.color = 'green';
-                // resultContentDiv.textContent = `Encrypted file name: ${encryptedFileName}`;
-
                 const title = `File encrypted successfully!`;
                 const body = `Encrypted file name: ${encryptedFileName}`;
-                new Notification(title, { body: body }).show()
+                new Notification(title, { body: body })
             } else {
                 console.error('Failed to save encrypted file.');
 
+                setErrorAlert(passwordBox);
+
                 const title = 'Failed to save encrypted file.';
                 const body = ` `;
-                new Notification(title, { body: body }).show()
+                new Notification(title, { body: body })
             }
 
         } else {
-            // message.textContent = 'Encryption failed.';
-            // message.style.color = 'red';
+            setErrorAlert(passwordBox);
 
             const title = 'Encryption failed.';
             const body = ` `;
-            new Notification(title, { body: body }).show()
+            new Notification(title, { body: body })
         }
     } else {
-        // message.textContent = 'Please enter a password.';
-        // message.style.color = 'red';
+        setErrorAlert(passwordBox);
 
         const title = 'Please enter a password.';
         const body = ` `;
-        new Notification(title, { body: body }).show()
+        new Notification(title, { body: body })
     }
 }
 
 async function decryptContent() {
     const password = document.getElementById('password').value;
+    const passwordBox = document.getElementById('password');
     const message = document.getElementById('message');
     const resultContentDiv = document.getElementById('resultContent');
 
@@ -87,49 +84,49 @@ async function decryptContent() {
             if (decryptedContent) {
 
                 // Save the decrypted file
-                console.log('Decrypted file saved at:', fullPath);
                 const decryptedFileName = await ipcRenderer.invoke('save-decrypted-file', fullPath, decryptedContent);
                 if (decryptedFileName) {
-                    // console.log('Dncrypted file saved at:', decryptedFileName);
-                    // message.textContent = 'File decrypted successfully!';
-                    // message.style.color = 'green';
-                    // resultContentDiv.textContent = `Decrypted file name: ${decryptedFileName}`;
-
                     const title = 'File decrypted successfully!';
                     const body = `Decrypted file name: ${decryptedFileName}`;
-                    new Notification(title, { body: body }).show()
+                    new Notification(title, { body: body });
                 } else {
                     console.error('Failed to save decrypted file.');
 
+                    setErrorAlert(passwordBox);
+
                     const title = 'Failed to save decrypted file.';
                     const body = ``;
-                    new Notification(title, { body: body }).show()
+                    new Notification(title, { body: body });
                 }
             } else {
-                // message.textContent = 'Decryption failed. Please check the password and try again.';
-                // message.style.color = 'red';
+                setErrorAlert(passwordBox);
 
                 const title = 'Decryption failed. Please check the password and try again.';
                 const body = ` `;
-                new Notification(title, { body: body }).show()
+                new Notification(title, { body: body });
             }
-        } catch (error) {
-            console.error('Error occurred during decryption:', error);
-            // message.textContent = 'Decryption failed. False password or encrypted file.';
-            // message.style.color = 'red';
-            // resultContentDiv.textContent = '';
+        } catch (e) {
+            console.error('Error occurred during decryption:', e);
 
+            setErrorAlert(passwordBox);
+            
             const title = 'Decryption failed. False password or encrypted file.';
             const body = ` `;
-            new Notification(title, { body: body }).show()
+            new Notification(title, { body: body });
         }
     } else {
-        // message.textContent = 'Please enter a password.';
-        // message.style.color = 'red';
+        setErrorAlert(passwordBox);
 
         const title = 'Please enter a password.';
         const body = ` `;
-        new Notification(title, { body: body }).show()
+        new Notification(title, { body: body });
     }
+}
+
+async function setErrorAlert(passwordBox) {
+    passwordBox.classList.add('error');
+    setTimeout(() => {
+        passwordBox.classList.remove('error');
+    }, 300);
 }
 
