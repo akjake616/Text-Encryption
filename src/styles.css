@@ -109,6 +109,10 @@
     padding: 0 10px;
 }
 
+.encyption_area {
+    display: flex;
+}
+
 #password {
     margin-right: 5px;
     width: 250px;

@@ -19,7 +19,7 @@ async function openFile() {
         pathDisplay.textContent = filePath;
         passwordInput.disabled = false;
         encryptButton.disabled = false;
-        decryptButton.disabled = false; // Disable decrypt button until encrypted content is available
+        decryptButton.disabled = false; 
     } else {
         pathDisplay.textContent = 'No file selected or failed to open the file.';
         passwordInput.disabled = true;
@@ -31,8 +31,6 @@ async function openFile() {
 async function encryptContent() {
     const password = document.getElementById('password').value;
     const passwordBox = document.getElementById('password');
-    const message = document.getElementById('message');
-    const resultContentDiv = document.getElementById('resultContent');
 
     if (password) {
         const encryptedContentWithIV = await ipcRenderer.invoke('encrypt-content', fileContent, password);
@@ -75,8 +73,6 @@ async function encryptContent() {
 async function decryptContent() {
     const password = document.getElementById('password').value;
     const passwordBox = document.getElementById('password');
-    const message = document.getElementById('message');
-    const resultContentDiv = document.getElementById('resultContent');
 
     if (password) {
         try {
@@ -95,7 +91,7 @@ async function decryptContent() {
                     setErrorAlert(passwordBox);
 
                     const title = 'Failed to save decrypted file.';
-                    const body = ``;
+                    const body = ` `;
                     new Notification(title, { body: body });
                 }
             } else {
