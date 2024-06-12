@@ -15,6 +15,8 @@
     background: #FFFFFF;
     overflow: hidden;
     position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .file-upload .file-select .file-select-button {
@@ -109,16 +111,28 @@
     padding: 0 10px;
 }
 
-.encyption_area {
+.encrytion-area {
     display: flex;
 }
 
 #password {
     margin-right: 5px;
-    width: 250px;
+    width: 380px;
+    margin: 5px;
+}
+
+#retypePassword {
+    margin-right: 5px;
+    width: 380px;
+    margin: 5px;
 }
 
 #password.error {
+    border-color: red;
+    background-color: #ffe6e6;
+}
+
+#retypePassword.error {
     border-color: red;
     background-color: #ffe6e6;
 }

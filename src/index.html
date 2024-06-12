@@ -31,9 +31,14 @@
         </div>
         <br />
         <div class="encrytion-area">
-            </span><input type="password" id="password" placeholder="Enter Password" disabled>
-            <button onclick="encryptContent()" id="encryptButton" disabled>Encrypt</button>
-            <button onclick="decryptContent()" id="decryptButton" disabled>Decrypt</button>
+            <div class="password-area">
+                <input type="password" id="password" placeholder="Enter Password" disabled>
+                <input type="password" id="retypePassword" placeholder="Retype password" disabled>
+            </div>
+            <div class="button-area">
+                <button onclick="encryptContent()" id="encryptButton" disabled>Encrypt</button>
+                <button onclick="decryptContent()" id="decryptButton" disabled>Decrypt</button>
+            </div>
         </div>
     </div>
     <script src="renderer.js"></script>
