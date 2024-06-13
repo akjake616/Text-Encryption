@@ -9,6 +9,13 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 500,
         height: 200,
+        minWidth: 500,
+        minHeight: 200,
+        maxWidth: 500,
+        maxHeight: 200,
+
+        icon: '../media/safe-text.ico',
+
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false
