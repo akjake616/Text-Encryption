@@ -27,6 +27,14 @@ npm install
 npm start
 ```
 
+TO create an app (Mac), one can use Electron Packager to complete this:
+```bash
+# Install Electron Packager 
+npm install electron-packager --save-dev
+# Run the app
+npx electron-packager . safe-text --platform=darwin --universal --icon=../media/safe-text.icns --out=dist --overwrite
+```
+
 ## Usage
 
 1. Open a File: Click the "Select Text File" button to select a text file. The file path will be displayed in the application.
