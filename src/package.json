@@ -16,6 +16,7 @@
   "author": "Jake W. Liu",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^30.0.6"
+    "electron": "^30.0.6",
+    "electron-packager": "^17.1.2"
   }
 }
